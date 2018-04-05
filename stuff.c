@@ -58,7 +58,7 @@ printf("string = |%s|", multiply(str1, str2));
 */
 
 
-char	*chooser(int change, char *str1. char *str2)
+char	*chooser(int change, char *str1, char *str2)
 {
 	char	*temp;
 	int		i;
@@ -103,8 +103,10 @@ char	*adding(char *str1, char *str2)
 	while(str1[len1] && str2[len2])
 	{
 		if ((str1[len1] - '0') + (str2[len2] - '0') >= 10)
-			temp
+			;
+//			temp;
 	}
+	return (temp);
 }
 
 /*
@@ -140,20 +142,75 @@ char	*restring(char *str1, int len)
 }
 */
 
+char	*adder(char *str1, char *str2)
+{
+	int		carry;
+	int		len1;
+	int		len2;
+	int		i;
+	int		e;
+	char	*solu;
+	char	*incase;
+	int		temp;
+
+	incase = NULL;
+	carry = 0;
+	len1 = strlen(str1);
+	len2 = strlen(str2);
+	if (!(solu = malloc(sizeof(char) * MAX(len1, len2))))
+		return (NULL);
+	i = -1;
+	e = MAX(len1, len2);
+	solu[e] = '\0';
+	while(--e >= 0)
+		solu[e] = 0;
+	e = MAX(len1, len2);
+	while(str1[--len1] && str2[--len2])
+	{
+		temp = (str1[len1] - '0') + (str2[len2] - '0') + carry;
+		if (temp >= 10)
+		{
+			carry = temp / 10;
+			temp = temp % 10;
+		}
+		// temp >= 10 : carry= = temp / 10 ? 0;
+		solu[--e] = temp;
+		if (e == 0 && carry != 0)
+		{
+			incase = restring()
+		}
+			// implement restring;
+	}
+	return (solu);
+}
+
+
+char	*restring(char *str, int len)
+{
+	int		lenstr;
+	char	*holder;
+	int		i;
+	int		e;
+
+	lenstr = strlen(str);
+	if(!(holder = malloc(sizeof(char) * len)))
+		return (NULL);
+	i = -1;
+	while(++i < len)
+		holder[i] = '0';
+	i = strlen(str);
+	e = len;
+	while(--i >= 0)
+	{
+		--e;
+		holder[e] = str[i];
+	}
+	holder[len] = '\0';
+	return (holder);
+}
+
 int main(void)
 {
-	// adder testing
-	char	*str1;
-	char	*str2;
-	char	*temp;
-
-	str1 = strdup("94546545646464545445454");
-	str2 = strdup("8848484848484884848484844848");
-	temp = restring(str1, strlen(str2));
-	printf("len str2 = |%d|\n", strlen(str2));
-	free(str1);
-	str1 = temp;
-	printf("restring = |%s|\n", str1);
-	printf("restring = |%s|\n", temp);
-	printf("restring = |%s|\n", str2);
+	printf("string nueva = |%s|\n", restring("1123456789", 18));
+	printf("what im doing \n");
 }
