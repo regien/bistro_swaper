@@ -6,7 +6,7 @@
 /*   By: gmalpart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 20:11:37 by gmalpart          #+#    #+#             */
-/*   Updated: 2018/04/08 04:43:48 by gmalpart         ###   ########.fr       */
+/*   Updated: 2018/04/08 08:40:49 by gmalpart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,15 @@ typedef struct		s_total
 {
 	int				base;
 	char			*dictionary;
-
+	// numbers of tokens
+	int				count;
+	int				*positions;
 	// dunno if i can implement another stuff
 }					t_total;
 
+int		*get_positions(char *str, t_total *envio);
+int		is_in_dictionary(char value, t_total *envio);
+int		count_token(char *str, t_total *envio);
+char	**tokenize(char *str, t_total *envio);
 
 #endif
