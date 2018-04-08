@@ -6,7 +6,7 @@
 /*   By: gmalpart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/03 20:11:37 by gmalpart          #+#    #+#             */
-/*   Updated: 2018/04/04 21:11:48 by gmalpart         ###   ########.fr       */
+/*   Updated: 2018/04/08 04:43:48 by gmalpart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include "libft.h"
 # define MIN(X, Y) ((X) < (Y) ? (X) : (Y))
 # define MAX(X, Y) ((X) < (Y) ? (Y) : (X))
 
@@ -33,10 +34,13 @@ typedef struct		t_stack
 	int				top;
 }					s_stack;
 
-typedef struct		s_number
+typedef struct		s_total
 {
-	char	*number;
-}					t_number;
+	int				base;
+	char			*dictionary;
+
+	// dunno if i can implement another stuff
+}					t_total;
 
 
 #endif
