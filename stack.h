@@ -6,7 +6,7 @@
 /*   By: gmalpart <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/05 19:20:42 by gmalpart          #+#    #+#             */
-/*   Updated: 2018/04/05 22:10:20 by gmalpart         ###   ########.fr       */
+/*   Updated: 2018/04/07 16:08:11 by regien           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 # define STACK_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
 
-typedef	struct		t_node
+typedef	struct		s_node
 {
 	long long int	len;
 	int				sign;
-	struct t_node	*next;
-}					s_node;
+	struct s_node	*next;
+}					t_node;
 
 
-typedef struct		t_stack
+typedef struct		s_stack
 {
-	s_node			*queue;
+	t_node			*queue;
 	int				size;
-	s_node			*top;
-}					s_stack;
+	t_node			*top;
+}					t_stack;
 
 #endif
