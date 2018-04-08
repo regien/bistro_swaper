@@ -6,7 +6,7 @@
 /*   By: regien <gmalpart@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 16:07:09 by regien            #+#    #+#             */
-/*   Updated: 2018/04/07 17:13:13 by regien           ###   ########.fr       */
+/*   Updated: 2018/04/07 17:40:43 by regien           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,20 @@
 ** can be change in bases
 */
 
+int		*len_token(char *str, int words)
+{
+	int		*holder;
+	int		i;
+
+	(!(holder = malloc(sizeof(int) * words)))
+			return (NULL);
+	i = 0;
+	while (str[i])
+	{
+		
+	}
+
+}
 
 int		count_token(char *str)
 {
@@ -38,31 +52,38 @@ int		count_token(char *str)
 	count = 0;
 	while (str[i])
 	{
-//		if (EQUAL('(') || EQUAL('+') || EQUAL(')') || EQUAL('-') || \
-//		EQUAL('-') || EQUAL('*') || EQUAL('/') || EQUAL('%'))
-//			count++;
 		if (str[i] >= '0' && str[i] <= '9')
 		{
 			count++;
 			while (str[i] >= '0' && str[i] <= '9')
 				i++;
 		}
-		if (str[i] == '+' || str[i] == '-' || str[i] == '*' || \
-			str[i] == '/' || str[i] == '%' || str[i] == '(' || \
-			str[i] == ')')
-				count++;
+		if (EQUAL('(') || EQUAL('+') || EQUAL(')') || EQUAL('-') || \
+		EQUAL('-') || EQUAL('*') || EQUAL('/') || EQUAL('%'))
+			count++;
 		//this is basically white spaces
 		i++;
 	}
 	return (count);
 }
 
+
+
 char	**tokenize(char *str)
 {
 	int		count;
-	
+	int		*wordlen;
+	char	**holder;
+
 	count = count_token(str);
-	printf("pendjeada = |%d|\n", count);
+	printf("pendejada = |%d|\n", count);
+	if (!(holder = malloc(sizeof(char*) * count)))
+		return (NULL);
+	if (!(wordlen = len_token(str, count)))
+		return (NULL);
+
+
+	
 	return (NULL);
 }
 
