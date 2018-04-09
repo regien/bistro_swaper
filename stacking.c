@@ -6,7 +6,7 @@
 /*   By: regien <gmalpart@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/07 16:07:09 by regien            #+#    #+#             */
-/*   Updated: 2018/04/08 08:40:47 by gmalpart         ###   ########.fr       */
+/*   Updated: 2018/04/09 00:33:37 by regien           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int		*get_positions(char *str, t_total *envio)
 		if (EQUAL('(') || EQUAL('+') || EQUAL(')') || EQUAL('-') || \
 		EQUAL('-') || EQUAL('*') || EQUAL('/') || EQUAL('%'))
 			holder[++e] = i;
-		//this is basically white spaces
 		i++;
 	}
 	return (holder);
@@ -150,11 +149,12 @@ void	make_token(char **dest, char *str, int *wordlen, t_total *envio)
 	{
 		re = -1;
 		i = post[e];
-		while (re < wordlen[e])
-		{
-			dest[e][re] = str[];
-		}
+		while (++re < wordlen[e])
+			dest[e][re] = str[post[e] + re];
 	}
+//	e = -1;
+//	while (++e < envio->count)
+//		printf("dest = |%s|\n", dest[e]);
 }
 
 char	**tokenize(char *str, t_total *envio)
@@ -169,11 +169,11 @@ char	**tokenize(char *str, t_total *envio)
 	printf("pendejada = |%d|\n", envio->count);
 	if (!(holder = ft_memalloc(sizeof(char*) * envio->count)))
 		return (NULL);
-	if (!(envi->positions = get_positions(str, envio)))
+	if (!(envio->positions = get_positions(str, envio)))
 		return (NULL);
 	if (!(wordlen = len_token(str, envio->positions, envio)))
 		return (NULL);
-	while (holder[++e] < envio->count)
+	while (++e < envio->count)
 		holder[e] = ft_memalloc(sizeof(char) * wordlen[e]);
 	make_token(holder, str, wordlen, envio);
 	return (holder);
